@@ -51,8 +51,8 @@ ball.goto(0,0)
 # split the movement of the ball into vertical and horizonal, .dx means delta so its 'change x) which will be horizontal
 # assigning it 2 means that everytime our ball moves it will move 2 pixels, in the below case it will move up and right by 2
 # to go down and left we would use -2, to make it move at all you need to go to the main game loop.
-ball.dx = 2
-ball.dy = 2
+ball.dx = 3
+ball.dy = -3
 
 # functions to move the paddles
 
@@ -103,4 +103,28 @@ while True:
     # next iteration will be 4, 6, you get the idea.
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
+
+    #set a border
+
+    # when the ball's y co-ordinates gets to a certain point we want it to bounce back 
+    # top of board is 300 and bottom is -300 as the height of the board is 600 altogether
+    # however the ball is 20 pixels and takes up space so we set the y cords to 290 and -290
+    if ball.ycor() > 290:
+        ball.sety(290)
+        # below reverses the direction of the ball to go down, but still travels across to the right.
+        ball.dy *= -1
+
+    if ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *= -1
+
+    if ball.xcor() > 390:
+      ball.goto(0,0)
+      ball.dx *= -1
+
+    if ball.xcor() < -390:
+      ball.goto(0,0)
+      ball.dx *= -1
+
+
     
