@@ -57,7 +57,10 @@ def paddle_a_up():
     y += 20
     paddle_a.sety(y)
 
-
+# use a keyboard binding to call the paddle_a_up function,
+window.listen()
+# below will call the method paddle_a_up when the w character is pressed - :)
+window.onkeypress(paddle_a_up, "w")
 
 
 
