@@ -49,6 +49,16 @@ ball.color("white")
 ball.penup()
 ball.goto(0,0)
 
+# functions to move the paddles
+
+def paddle_a_up():
+    # set the y co-ordinate for the paddle before moving it, using the .ycor method from the turtle module
+    y = paddle_a.ycor()
+    y += 20
+    paddle_a.sety(y)
+
+
+
 
 
 
