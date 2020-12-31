@@ -48,6 +48,11 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0,0)
+# split the movement of the ball into vertical and horizonal, .dx means delta so its 'change x) which will be horizontal
+# assigning it 2 means that everytime our ball moves it will move 2 pixels, in the below case it will move up and right by 2
+# to go down and left we would use -2, to make it move at all you need to go to the main game loop.
+ball.dx = 2
+ball.dy = 2
 
 # functions to move the paddles
 
@@ -91,4 +96,11 @@ window.onkeypress(paddle_b_down, "k")
 while True:
 # below use spaces to move 4 character spaces - can use tabs but must keep it consistant
     window.update()
+
+    # move the ball
+
+    # the first time a while loop is called the value of ball will be 2 (as ball.xcor starts at 0, and ball.dx == 2)
+    # next iteration will be 4, 6, you get the idea.
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
     
