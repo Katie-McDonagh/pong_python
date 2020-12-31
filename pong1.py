@@ -63,11 +63,23 @@ def paddle_a_down():
     y -= 20
     paddle_a.sety(y)
 
+def paddle_b_up():
+    y = paddle_b.ycor()
+    y += 20
+    paddle_b.sety(y)
+
+def paddle_b_down():
+    y = paddle_b.ycor()
+    y -= 20
+    paddle_b.sety(y)
+
 # use a keyboard binding to call the paddle_a_up function,
 window.listen()
 # below will call the method paddle_a_up when the w character is pressed - :)
 window.onkeypress(paddle_a_up, "w")
 window.onkeypress(paddle_a_down, "s")
+window.onkeypress(paddle_b_up, "i")
+window.onkeypress(paddle_b_down, "k")
 
 
 
