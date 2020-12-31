@@ -12,6 +12,34 @@ window.setup(width=800, height=600)
 # tracer stops the window from updating, we have to manually update it, which means we can speed up the game alot
 window.tracer
 
+# paddle A 
+
+# paddle_a is a turtle object (small t for the module turtle, and uppercase T for the class Turtle within the turtle module)
+paddle_a = turtle.Turtle()
+# paddle speed is the speed of animation, not how fast a paddle can move, 0 sets it to the maximum speed
+paddle_a.speed(0)
+# styling the paddle: there are a few built in shapes within turtle, we can use them by calling them in a string like below
+paddle_a.shape("square")
+paddle_a.color("white")
+# by default the paddle will be 20px by 20px, it can be stretched by calling its height/width and by how much to be 
+# stretched by so width=5 would be making it 5 times bigger
+paddle_a.shapesize(stretch_wid=5, stretch_len=1)
+# to prevent the default of turtle drawing a line after an object moves we call the .penup method
+paddle_a.penup()
+# set the co-ordinates of where the paddle should start on the screen paddle.goto(x co-ordinates, y co-ordinates), the program 
+# uses the center of the board is an default starting point, to the x and y co-ordinates are relative to center of board instead
+# of the top left corner with JS
+paddle_a.goto(-350,0)
+
+# Paddle B 
+
+# Ball
+
+
+
+
+
+
 
 # main game loop
 
