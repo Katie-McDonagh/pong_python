@@ -12,6 +12,10 @@ window.setup(width=800, height=600)
 # tracer stops the window from updating, we have to manually update it, which means we can speed up the game alot
 window.tracer
 
+#Score
+score_a = 0
+score_b = 0
+
 # paddle A 
 
 # paddle_a is a turtle object (small t for the module turtle, and uppercase T for the class Turtle within the turtle module)
@@ -51,8 +55,22 @@ ball.goto(0,0)
 # split the movement of the ball into vertical and horizonal, .dx means delta so its 'change x) which will be horizontal
 # assigning it 2 means that everytime our ball moves it will move 2 pixels, in the below case it will move up and right by 2
 # to go down and left we would use -2, to make it move at all you need to go to the main game loop.
-ball.dx = 3
-ball.dy = -3
+ball.dx = 5
+ball.dy = -5
+
+
+# scoring 
+# Pen
+#pen is an turtle object, call small t for the turtle module and uppercase T for the class
+pen = turtle.Turtle()
+#annimation speed
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player A: 0   Player B: 0", align="center", font=("Courier", 24, "normal"))
+
 
 # functions to move the paddles
 
@@ -121,10 +139,18 @@ while True:
     if ball.xcor() > 390:
       ball.goto(0,0)
       ball.dx *= -1
+      score_a += 1
+      pen.clear()
+      pen.write("Player A: {}   Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+
 
     if ball.xcor() < -390:
       ball.goto(0,0)
       ball.dx *= -1
+      score_b += 1
+      pen.clear()
+      pen.write("Player A: {}   Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+
 
 
     # paddle and ball colisions
